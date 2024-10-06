@@ -1,45 +1,81 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+const App = () => {
+  const [nombre, setNombre] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [mensaje, setMensaje] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí llamarás al API Gateway para enviar los datos
-    console.log('Form data:', formData);
+
+    const data = {
+      nombre,
+      correo,
+      mensaje
+    };
+
+    try {
+      const response = await fetch('https://tu-api-gateway-url.amazonaws.com/dev/formulario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        console.log('Datos enviados con éxito');
+      } else {
+        console.log('Error al enviar los datos');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
-    <div className="App">
-      <h1>Formulario</h1>
+    <div className="container mt-5">
+      <h2>Formulario de Contacto</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label>Nombre:</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
+          <input
+            type="text"
+            className="form-control"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            required
+          />
         </div>
-        <div>
-          <label>Email:</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+
+        <div className="form-group mt-3">
+          <label>Correo Electrónico:</label>
+          <input
+            type="email"
+            className="form-control"
+            value={correo}
+            onChange={(e) => setCorreo(e.target.value)}
+            required
+          />
         </div>
-        <div>
+
+        <div className="form-group mt-3">
           <label>Mensaje:</label>
-          <textarea name="message" value={formData.message} onChange={handleChange}></textarea>
+          <textarea
+            className="form-control"
+            value={mensaje}
+            onChange={(e) => setMensaje(e.target.value)}
+            required
+          />
         </div>
-        <button type="submit">Enviar</button>
+
+        <button type="submit" className="btn btn-primary mt-4">
+          Enviar
+        </button>
       </form>
     </div>
   );
-}
+};
 
 export default App;
