@@ -3,8 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css'; // Importa estilos de Amplify para que los estilos de Cognito sean aplicados
+import './custom-styles.css';
 
-// Configurar Amplify con las credenciales de Cognito
 Amplify.configure(awsconfig);
 
 const App = () => {
@@ -44,45 +45,49 @@ const App = () => {
     <Authenticator>
       {({ signOut, user }) => (
         <div className="container mt-5">
-          <button onClick={signOut} className="btn btn-secondary mb-3">Cerrar Sesión</button>
-          <h2>Formulario de Contacto</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Nombre:</label>
-              <input
-                type="text"
-                className="form-control"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-                required
-              />
-            </div>
+          <div className="card mx-auto" style={{ maxWidth: '500px' }}>
+            <div className="card-body">
+              <button onClick={signOut} className="btn btn-secondary mb-3">Cerrar Sesión</button>
+              <h2>Formulario de Contacto</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label>Nombre:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    required
+                  />
+                </div>
 
-            <div className="form-group mt-3">
-              <label>Correo Electrónico:</label>
-              <input
-                type="email"
-                className="form-control"
-                value={correo}
-                onChange={(e) => setCorreo(e.target.value)}
-                required
-              />
-            </div>
+                <div className="form-group mt-3">
+                  <label>Correo Electrónico:</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={correo}
+                    onChange={(e) => setCorreo(e.target.value)}
+                    required
+                  />
+                </div>
 
-            <div className="form-group mt-3">
-              <label>Mensaje:</label>
-              <textarea
-                className="form-control"
-                value={mensaje}
-                onChange={(e) => setMensaje(e.target.value)}
-                required
-              />
-            </div>
+                <div className="form-group mt-3">
+                  <label>Mensaje:</label>
+                  <textarea
+                    className="form-control"
+                    value={mensaje}
+                    onChange={(e) => setMensaje(e.target.value)}
+                    required
+                  />
+                </div>
 
-            <button type="submit" className="btn btn-primary mt-4">
-              Enviar
-            </button>
-          </form>
+                <button type="submit" className="btn btn-primary mt-4 w-100">
+                  Enviar
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       )}
     </Authenticator>
