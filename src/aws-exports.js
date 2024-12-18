@@ -5,9 +5,20 @@ const awsmobile = {
     "aws_project_region": "us-east-1",
     "aws_cognito_identity_pool_id": "us-east-1:af401bb8-936a-4b77-ba52-0b259dcc804d",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_32qplqzzg",
-    "aws_user_pools_web_client_id": "496v7sr904m9krmpc1cvi699k1",
-    "oauth": {},
+    "aws_user_pools_id": "us-east-1_kTBmzCuoU",
+    "aws_user_pools_web_client_id": "78qbqjejduf3svuknrhddtkbp4",
+    "oauth": {
+      "domain": "post-master.auth.us-east-1.amazoncognito.com",
+      "scope": [
+          "openid",
+          "profile",
+          "email",
+          "aws.cognito.signin.user.admin"
+      ],
+      "redirectSignIn": "https://main.d1sda4wfq545xc.amplifyapp.com/",
+      "redirectSignOut": "",
+      "responseType": "code"
+    },
     "aws_cognito_username_attributes": [],
     "aws_cognito_social_providers": [],
     "aws_cognito_signup_attributes": [
@@ -24,25 +35,6 @@ const awsmobile = {
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
     ],
-    "Auth": {
-        "region": "us-east-1",
-        "userPoolId": "us-east-1_kTBmzCuoU",
-        "userPoolWebClientId": "78qbqjejduf3svuknrhddtkbp4",
-        "mandatorySignIn": false,
-        "authenticationFlowType": "USER_SRP_AUTH",
-        "oauth": {
-            "domain": "post-master.auth.us-east-1.amazoncognito.com",
-            "scope": [
-                "openid",
-                "profile",
-                "email",
-                "aws.cognito.signin.user.admin"
-            ],
-            "redirectSignIn": "https://main.d1sda4wfq545xc.amplifyapp.com/",
-            "redirectSignOut": "",
-            "responseType": "code"
-        }
-    }
 };
 
 
