@@ -15,9 +15,7 @@
         "signupAttributes": [
           "EMAIL"
         ],
-        "socialProviders": [
-          "FACEBOOK"
-        ],
+        "socialProviders": [],
         "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"

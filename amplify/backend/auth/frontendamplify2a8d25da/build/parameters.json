@@ -34,7 +34,7 @@
   "sharedId": "2a8d25da",
   "resourceName": "frontendamplify2a8d25da",
   "authSelections": "identityPoolAndUserPool",
-  "useDefault": "defaultSocial",
+  "useDefault": "default",
   "userPoolGroupList": [],
   "serviceName": "Cognito",
   "usernameCaseSensitive": false,
@@ -52,13 +52,5 @@
     ]
   },
   "breakCircularDependency": true,
-  "dependsOn": [],
-  "hostedUI": true,
-  "hostedUIDomainName": "frontendamplify754d82cb-754d82cb",
-  "authProvidersUserPool": [
-    "Facebook"
-  ],
-  "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}}]",
-  "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://main.d1sda4wfq545xc.amplifyapp.com/\"],\"LogoutURLs\":[\"https://main.d1sda4wfq545xc.amplifyapp.com/\"]}",
-  "authProviders": []
+  "dependsOn": []
 }
