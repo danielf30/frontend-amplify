@@ -28,7 +28,9 @@
         "signupAttributes": [
           "EMAIL"
         ],
-        "socialProviders": [],
+        "socialProviders": [
+          "FACEBOOK"
+        ],
         "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
@@ -45,11 +47,12 @@
         "IdentityPoolName": "frontendamplify2a8d25da_identitypool_2a8d25da__dev",
         "UserPoolName": "frontendamplify2a8d25da_userpool_2a8d25da"
       },
-      "lastPushTimeStamp": "2024-12-18T19:51:51.869Z",
+      "lastPushTimeStamp": "2024-12-19T13:16:22.115Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-frontendamplify-dev-7bf19-deployment/amplify-cfn-templates/auth/frontendamplify2a8d25da-cloudformation-template.json",
         "logicalId": "authfrontendamplify2a8d25da"
-      }
+      },
+      "lastPushDirHash": "MqX7MEJ+Y7Z8kaOm4RjNST2xqIo="
     }
   }
 }
